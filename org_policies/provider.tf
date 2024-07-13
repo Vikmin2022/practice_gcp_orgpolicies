@@ -1,7 +1,7 @@
 provider "google" {
   project     = "My First Projectvar"
   region      = "us-central1"
-  credentials = base64decode(var.GCP_SA_KEY_JSON_base64)
+  credentials = base64decode(env.GCP_SA_KEY_JSON)
 }
 
 
