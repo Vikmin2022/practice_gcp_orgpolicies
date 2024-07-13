@@ -18,7 +18,7 @@ terraform {
 provider "google" {
   project     = var.project_id
   region      = var.region
-  credentials = base64decode(env.GCP_SA_KEY_JSON)
+  credentials = env.GCP_SA_KEY_JSON
 }
 
 resource "google_compute_instance" "default" {
