@@ -7,22 +7,42 @@ terraform {
   }
 
   backend "remote" {
-    organization = "vprotsenko2007-org"
+    organization = "your-organization-name"
 
     workspaces {
-      name = "practice_gcp_orgpolicies"
+      name = "your-workspace-name"
     }
   }
 }
 
 provider "google" {
-  project     = "zeta-handler-369021"
-  region      = "us-central1"
+  project     = var.project_id
+  region      = var.region
+  credentials = base64decode(env.GCP_SA_KEY_JSON)
 }
 
+resource "google_compute_instance" "default" {
+  name         = "example-instance"
+  machine_type = "n1-standard-1"
+  zone         = "us-central1-a"
 
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-10"
+    }
+  }
 
-# provider "google" {
-#   project     = "TF_VAR_project_id"
-#   region      = "us-central1"
-# }
+  network_interface {
+    network    = "default"
+    access_config {
+      // Ephemeral IP
+    }
+  }
+
+ 
+}
+
+resource "google_storage_bucket" "default" {
+  name     = "example-bucket-${var.project_id}"
+  location = var.region
+}
