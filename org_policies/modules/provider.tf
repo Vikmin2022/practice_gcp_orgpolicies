@@ -18,7 +18,7 @@ terraform {
 provider "google" {
   project     = var.project_id
   region      = var.region
-  credentials = env.TF_VAR_google_credentials
+  credentials = var.google_credentials
 }
 
 resource "google_compute_instance" "default" {
