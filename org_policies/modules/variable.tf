@@ -8,3 +8,8 @@ variable "region" {
   type        = string
   default     = "us-central1"
 }
+
+variable "google_credentials" {
+  description = " GCP service account key JSON"
+  type        = string
+}
