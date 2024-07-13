@@ -7,4 +7,6 @@ resource  "google_project_organization_policy" "deny_public_bucket"{
     }
 
 }
+
+
  
