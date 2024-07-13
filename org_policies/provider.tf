@@ -16,7 +16,7 @@ terraform {
 }
 
 provider "google" {
-  project     = "TF_VAR_project_id"
+  project     = "zeta-handler-369021"
   region      = "us-central1"
 }
 
