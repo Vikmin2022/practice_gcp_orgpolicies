@@ -7,10 +7,10 @@ terraform {
   }
 
   backend "remote" {
-    organization = "your-organization-name"
+    organization = "vprotsenko2007-org"
 
     workspaces {
-      name = "your-workspace-name"
+      name = "practice_gcp_orgpolicies"
     }
   }
 }
